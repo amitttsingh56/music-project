@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09090b">
+  <meta name="description" content="Bus Wali Playlist — curated modes for the long ride.">
+  <title>Bus Wali Playlist — By Amit Singh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="noise"></div>
+
+  <main class="app">
+    <header class="header">
+      <div class="brand-mark">♪</div>
+      <div class="brand-copy">
+        <div class="brand">BUS WALI</div>
+        <div class="brand-sub">PLAYLIST</div>
+      </div>
+      <div class="header-line"></div>
+      <div class="credit">BY AMIT SINGH</div>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow">THE SOUNDTRACK FOR THE ROAD</div>
+      <h1>Choose your mood.<br><span>Press play.</span></h1>
+    </section>
+
+    <section class="modes" aria-label="Playlist modes">
+      <button class="mode active" data-mode="90s" type="button" aria-pressed="true">
+        <div class="mode-art art-90s"></div>
+        <div class="mode-shade"></div>
+        <div class="mode-copy">
+          <span class="number">01</span>
+          <strong>90s</strong>
+          <small>Evergreen Bollywood</small>
+        </div>
+        <span class="mode-go">↗</span>
+      </button>
+
+      <button class="mode" data-mode="new" type="button" aria-pressed="false">
+        <div class="mode-art art-new"></div>
+        <div class="mode-shade"></div>
+        <div class="mode-copy">
+          <span class="number">02</span>
+          <strong>NEW</strong>
+          <small>Recent Hindi favourites</small>
+        </div>
+        <span class="mode-go">↗</span>
+      </button>
+
+      <button class="mode" data-mode="bhojpuri" type="button" aria-pressed="false">
+        <div class="mode-art art-bhojpuri"></div>
+        <div class="mode-shade"></div>
+        <div class="mode-copy">
+          <span class="number">03</span>
+          <strong>BHOJPURI</strong>
+          <small>Desi hits for the road</small>
+        </div>
+        <span class="mode-go">↗</span>
+      </button>
+    </section>
+
+    <section class="player">
+      <div class="player-top">
+        <div>
+          <div class="now-label">NOW PLAYING</div>
+          <h2 id="modeTitle">90s Mode</h2>
+          <p id="status">Tap the mode to start</p>
+        </div>
+        <div class="bars" id="bars" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+
+      <div class="time-row">
+        <span id="currentTime">0:00</span>
+        <div class="progress"><div id="progressFill"></div></div>
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button class="btn side" id="prev" type="button" aria-label="Previous song" disabled>‹</button>
+        <button class="btn play" id="play" type="button" aria-label="Play" disabled><span id="playIcon">▶</span></button>
+        <button class="btn side" id="next" type="button" aria-label="Next song" disabled>›</button>
+      </div>
+
+      <div class="shortcut">SPACE play/pause &nbsp; · &nbsp; ← previous &nbsp; · &nbsp; → next</div>
+    </section>
+
+    <footer>
+      <span>BUS WALI PLAYLIST</span>
+      <span>•</span>
+      <span>BY AMIT SINGH</span>
+    </footer>
+
+    <!-- The YouTube iframe is intentionally a normal, valid player element.
+         It is visually minimized, but not moved to a negative/off-screen position. -->
+    <div class="yt-wrap" aria-hidden="true">
+      <div id="youtube-player"></div>
+    </div>
+  </main>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="app.js"></script>
+</body>
+</html>

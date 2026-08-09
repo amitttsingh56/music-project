@@ -1,0 +1,121 @@
+:root {
+  --bg:#09090b;
+  --panel:rgba(20,20,24,.82);
+  --line:rgba(255,255,255,.11);
+  --text:#f7f4ef;
+  --muted:#97949a;
+  --gold:#d7b27c;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  font-family:"DM Sans",system-ui,sans-serif;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 8% 5%,rgba(168,108,53,.17),transparent 27%),
+    radial-gradient(circle at 94% 85%,rgba(91,67,123,.14),transparent 30%),
+    var(--bg);
+}
+button{font:inherit}
+.bg-orb{position:fixed;border-radius:50%;filter:blur(100px);opacity:.14;pointer-events:none}
+.orb-1{width:420px;height:420px;left:-260px;top:-220px;background:#d19b61}
+.orb-2{width:500px;height:500px;right:-330px;bottom:-280px;background:#76629b}
+.noise{
+  position:fixed;inset:0;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+.app{position:relative;z-index:1;width:min(900px,calc(100% - 32px));margin:auto;padding:34px 0 28px}
+.header{display:flex;align-items:center;gap:11px}
+.brand-mark{
+  width:39px;height:39px;border:1px solid var(--line);border-radius:12px;
+  display:grid;place-items:center;background:rgba(255,255,255,.04);font-size:19px
+}
+.brand{font-size:11px;font-weight:700;letter-spacing:2.6px}
+.brand-sub{font-size:9px;color:var(--gold);letter-spacing:2.6px;margin-top:2px}
+.header-line{height:1px;flex:1;background:var(--line);margin-left:14px}
+.credit{font-size:9px;letter-spacing:1.8px;color:#69666d}
+.intro{padding:72px 0 34px}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:2.7px;color:var(--gold);margin-bottom:12px}
+h1{
+  margin:0;font-size:clamp(42px,7vw,72px);line-height:.98;letter-spacing:-3.6px
+}
+h1 span{font-family:"Playfair Display",serif;font-weight:600;color:#c9c2b8}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mode{
+  position:relative;isolation:isolate;overflow:hidden;min-height:230px;
+  padding:0;border:1px solid var(--line);border-radius:25px;background:#17171b;
+  color:#fff;text-align:left;cursor:pointer;transition:.22s ease
+}
+.mode:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.25)}
+.mode.active{border-color:rgba(215,178,124,.8);box-shadow:0 0 0 1px rgba(215,178,124,.12),0 20px 55px rgba(0,0,0,.35)}
+.mode-art{position:absolute;inset:0;transition:transform .6s ease}
+.mode:hover .mode-art{transform:scale(1.08)}
+.art-90s{
+  background:
+  radial-gradient(circle at 25% 20%,#b77a48 0 4%,transparent 5%),
+  radial-gradient(circle at 75% 35%,#694233 0 13%,transparent 14%),
+  linear-gradient(145deg,#69432d,#21191a 58%,#0e0d0f)
+}
+.art-new{
+  background:
+  radial-gradient(circle at 70% 25%,#758bb1 0 8%,transparent 9%),
+  radial-gradient(circle at 24% 72%,#705087 0 15%,transparent 16%),
+  linear-gradient(145deg,#344762,#191921 57%,#0c0c10)
+}
+.art-bhojpuri{
+  background:
+  radial-gradient(circle at 28% 28%,#c17a38 0 8%,transparent 9%),
+  radial-gradient(circle at 75% 72%,#704027 0 17%,transparent 18%),
+  linear-gradient(145deg,#794725,#281817 57%,#0d0c0d)
+}
+.mode-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.08) 72%)}
+.mode-copy{position:absolute;left:19px;right:19px;bottom:18px}
+.number{display:block;font-size:10px;letter-spacing:1.6px;color:var(--gold);margin-bottom:30px}
+.mode strong{display:block;font-size:25px;letter-spacing:-1px}
+.mode small{display:block;margin-top:5px;font-size:11px;color:#bcb8b2}
+.mode-go{position:absolute;right:18px;top:16px;font-size:20px;color:#aaa}
+.player{
+  margin-top:12px;padding:25px;border:1px solid var(--line);border-radius:25px;
+  background:var(--panel);backdrop-filter:blur(20px);
+  box-shadow:0 28px 80px rgba(0,0,0,.42)
+}
+.player-top{display:flex;align-items:center;justify-content:space-between;min-height:65px}
+.now-label{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--gold)}
+.player h2{margin:7px 0 4px;font-size:22px;letter-spacing:-.7px}
+.player p{margin:0;color:var(--muted);font-size:12px}
+.bars{height:27px;display:flex;align-items:end;gap:3px;opacity:.35}
+.bars i{width:3px;height:7px;background:var(--gold);border-radius:3px}
+.bars.playing{opacity:1}
+.bars.playing i{animation:eq .75s ease-in-out infinite alternate}
+.bars.playing i:nth-child(2){animation-delay:-.4s}.bars.playing i:nth-child(3){animation-delay:-.2s}.bars.playing i:nth-child(4){animation-delay:-.6s}.bars.playing i:nth-child(5){animation-delay:-.1s}
+@keyframes eq{from{height:5px}to{height:25px}}
+.time-row{display:flex;align-items:center;gap:10px;margin:24px 0 18px;color:#706e74;font-size:9px;font-variant-numeric:tabular-nums}
+.progress{height:3px;flex:1;background:#2b2b31;border-radius:4px;overflow:hidden}
+#progressFill{height:100%;width:0;background:var(--gold);transition:width .25s linear}
+.controls{display:flex;align-items:center;justify-content:center;gap:24px}
+.btn{
+  width:48px;height:48px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(255,255,255,.025);color:var(--text);cursor:pointer;
+  display:grid;place-items:center;transition:.15s ease;font-size:33px;line-height:1
+}
+.btn:hover:not(:disabled){transform:scale(1.06);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)}
+.btn.play{width:62px;height:62px;border:0;background:#f5f2ed;color:#111;font-size:19px;padding-left:3px}
+.btn:disabled{opacity:.3;cursor:wait}
+.shortcut{text-align:center;color:#55545a;font-size:9px;margin-top:18px}
+footer{display:flex;justify-content:center;gap:8px;color:#56545a;font-size:9px;margin-top:18px;letter-spacing:.5px}
+.yt-wrap{
+  width:1px;height:1px;overflow:hidden;position:relative;
+  margin:1px auto 0;opacity:.001
+}
+#youtube-player{width:320px;height:180px}
+@media(max-width:700px){
+  .app{width:min(100% - 22px,560px);padding-top:22px}
+  .credit{display:none}
+  .intro{padding:55px 0 25px}
+  h1{font-size:clamp(40px,12vw,60px)}
+  .modes{grid-template-columns:1fr}
+  .mode{min-height:145px}
+  .number{margin-bottom:12px}
+  .mode strong{font-size:23px}
+  .player{padding:20px 16px}
+}
