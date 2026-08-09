@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09090b">
+<title>Bus Wali Playlist — By Amit Singh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="orb one"></div><div class="orb two"></div><div class="noise"></div>
+<main class="app">
+<header class="header">
+  <div class="logo">♪</div><div><div class="brand">BUS WALI</div><div class="sub">PLAYLIST</div></div>
+  <div class="rule"></div><div class="credit">BY AMIT SINGH</div>
+</header>
+
+<section class="intro">
+  <div class="eyebrow">THE SOUNDTRACK FOR THE ROAD</div>
+  <h1>Choose your mood.<br><em>Press play.</em></h1>
+</section>
+
+<section class="modes">
+<button class="mode active" data-mode="90s" type="button"><span class="art a90"></span><span class="shade"></span><span class="copy"><small>01</small><strong>90s</strong><i>Evergreen Bollywood</i></span><b>↗</b></button>
+<button class="mode" data-mode="new" type="button"><span class="art anew"></span><span class="shade"></span><span class="copy"><small>02</small><strong>NEW</strong><i>Recent Hindi favourites</i></span><b>↗</b></button>
+<button class="mode" data-mode="bhojpuri" type="button"><span class="art abhoj"></span><span class="shade"></span><span class="copy"><small>03</small><strong>BHOJPURI</strong><i>Desi hits for the road</i></span><b>↗</b></button>
+</section>
+
+<section class="player-card">
+  <div class="video-stage">
+    <div id="youtube-player"></div>
+    <div class="video-loading" id="videoLoading">Loading player…</div>
+  </div>
+  <div class="player-info">
+    <div>
+      <span class="now">NOW PLAYING</span>
+      <h2 id="title">90s Mode</h2>
+      <p id="status">Choose a mode to start</p>
+    </div>
+    <div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="time"><span id="current">0:00</span><div class="track"><span id="fill"></span></div><span id="total">0:00</span></div>
+  <div class="controls">
+    <button id="prev" class="control side" type="button" aria-label="Previous" disabled>‹</button>
+    <button id="play" class="control main" type="button" aria-label="Play" disabled><span id="icon">▶</span></button>
+    <button id="next" class="control side" type="button" aria-label="Next" disabled>›</button>
+  </div>
+  <div class="tip">SPACE play/pause &nbsp; · &nbsp; ← previous &nbsp; · &nbsp; → next</div>
+</section>
+
+<footer>BUS WALI PLAYLIST <span>•</span> BY AMIT SINGH</footer>
+</main>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="app.js"></script>
+</body>
+</html>
